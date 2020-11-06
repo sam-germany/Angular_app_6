@@ -1,1 +1,32 @@
-<p>form-field works!</p>
+
+
+
+<div class="form-field" [class.form-field_error]="hasError22()" [class.form-field_inline]="isInline22">
+  <label class="form-field__label">
+    {{ label22 }}
+    <span class="form-field__req" *ngIf="required22">*</span>
+  </label>
+
+  <div class="form-field__control">
+    <ng-content></ng-content>
+
+    <div class="form-field__error">
+
+      <ng-container *ngIf="control22 && errorKey22" [ngSwitch]="errorKey22">
+        <span *ngSwitchCase="'min'">Minimum {{control22.errors[errorKey22].min}}</span>
+        <span *ngSwitchCase="'max'">Maximum {{control22.errors[errorKey22].max}}</span>
+        <span *ngSwitchCase="'required'">This field is required</span>
+        <span *ngSwitchCase="'requiredTrue'">This field is required</span>
+        <span *ngSwitchCase="'minlength'">At least {{control22.errors[errorKey22].requiredLength}} characters</span>
+        <span *ngSwitchCase="'maxlength'">No more than {{control22.errors[errorKey22].requiredLength}}
+          characters</span>
+        <span *ngSwitchCase="'pattern'">
+                    <span *ngIf="patternError22">{{patternError22}}</span>
+                    <span *ngIf="!patternError22">Pattern does not match</span>
+                </span>
+      </ng-container>
+
+    </div>
+  </div>
+
+</div>

@@ -1,1 +1,24 @@
-<p>date-range works!</p>
+
+
+<div class="date-range">
+  <form [formGroup]="form" novalidate autocomplete="off">
+    <div class="date-range__items">
+      <app-date formControlName="from"
+                (closed)="onClosed22()"
+                [placeholder]="placeholder?.from33 || 'From'"
+                (changed)="onChanged22()"
+                [max]="max">
+      </app-date>
+
+      <span class="date-range__dash"></span>
+
+      <app-date formControlName="to"
+                (closed)="onClosed22()"
+                [placeholder]="placeholder?.to33 || 'To'"
+                (changed)="onChanged22()"
+                [min]="min">
+      </app-date>
+    </div>
+  </form>
+
+</div>

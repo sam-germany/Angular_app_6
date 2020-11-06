@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, Input, OnInit} from '@angular/core';
+export type ButtonType = 'button' | 'submit';
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
 
-  constructor() { }
+  @Input() type: ButtonType;
+
+  constructor() {
+    this.type = 'button';
+  }
 
   ngOnInit(): void {
   }
