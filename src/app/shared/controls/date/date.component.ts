@@ -18,14 +18,14 @@ type Value = number;
   ]
 })
 export class DateComponent implements OnInit, ControlValueAccessor {
-  @Input() placeholder: string;
-  @Input() min: Date;
-  @Input() max: Date;
-  @Output() changed = new EventEmitter<Value>();
-  @Output() closed = new EventEmitter<void>();
+  @Input() placeholder22: string;
+  @Input() min22: Date;
+  @Input() max22: Date;
+  @Output() changed22 = new EventEmitter<Value>();
+  @Output() closed22 = new EventEmitter<void>();
 
-  value: Value;
-  isDisabled: boolean;
+  value22: Value;
+  isDisabled22: boolean;
 
   constructor() { }
 
@@ -33,14 +33,14 @@ export class DateComponent implements OnInit, ControlValueAccessor {
   }
 
   get inputValue22(): Date {
-    return this.value ? new Date(this.value) : null;
+    return this.value22 ? new Date(this.value22) : null;
   }
 
   private propagateChange: any = () => { };
   private propagateTouched: any = () => { };
 
   writeValue(value: Value): void {
-    this.value = value;
+    this.value22 = value;
   }
 
   registerOnChange(fn: any): void {
@@ -52,20 +52,20 @@ export class DateComponent implements OnInit, ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.isDisabled = isDisabled;
+    this.isDisabled22 = isDisabled;
   }
 
   onChanged22(event: MatDatepickerInputEvent<Date>): void {
     const value = event.value ? event.value.getTime() : null;
 
-    this.value = value;
+    this.value22 = value;
     this.propagateChange(value);
-    this.changed.emit(value);
+    this.changed22.emit(value);
   }
 
   onClosed22(): void {
     this.propagateTouched();
-    this.closed.emit();
+    this.closed22.emit();
   }
 
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DateRangeComponent } from './date-range.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
-import {DateModule} from '@app/shared';
+import {DateModule} from '../date/date.module';
 
 
 
@@ -12,8 +12,9 @@ import {DateModule} from '@app/shared';
   declarations: [DateRangeComponent],
   imports: [
     CommonModule,
-    DateModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
+    DateModule
   ],
   exports: [
     DateRangeComponent

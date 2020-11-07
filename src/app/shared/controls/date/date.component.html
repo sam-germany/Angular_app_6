@@ -8,13 +8,13 @@
          (dateChange)="onChanged22($event)"
          (click)="picker.open()"
          (click)="picker.open()"
-         [attr.disabled]="isDisabled ? true : null"
+         [attr.disabled]="isDisabled22 ? true : null"
          [value]="inputValue22"
-         [min]="min"
-         [max]="max"
-         placeholder="{{ placeholder || 'Choose a date'}}">
+         [min]="min22"
+         [max]="max22"
+         placeholder="{{ placeholder22 || 'Choose a date'}}">
 
-  <mat-datepicker-toggle matPrefix [for]="picker" [disabled]="isDisabled">
+  <mat-datepicker-toggle matPrefix [for]="picker" [disabled]="isDisabled22">
   </mat-datepicker-toggle>
   <mat-datepicker #picker (closed)="onClosed22()"></mat-datepicker>
 </div>

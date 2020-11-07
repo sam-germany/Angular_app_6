@@ -1,0 +1,27 @@
+
+<div class="autocomplete">
+  <input
+    class="app-input"
+    type="text"
+    #search33
+    [placeholder]="placeholder22 || 'Pick one'"
+    [formControl]="formControl22"
+    [matAutocomplete]="auto33"
+    (blur)="onBlur22()"
+  >
+  <mat-autocomplete  #auto33="matAutocomplete" [displayWith]="displayFn22">
+
+    <mat-option *ngFor="let x1 of options$ | async" [value]="x1">
+      <div class="option">
+           <div class="option__icon" *ngIf="x1.icon">
+              <span [ngClass]="x1.icon?.cssClass"></span>
+                <!--<img [src]="">-->
+           </div>
+           <div class="option__label"
+              [innerHTML]="x1.label | highlight33 : search33.value">
+           </div>
+      </div>
+    </mat-option>
+
+  </mat-autocomplete>
+</div>

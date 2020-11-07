@@ -11,6 +11,7 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatDateFormats, MatNativeDateModule} 
 import {environment} from '@src/environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NotificationModule} from '@app/services';
 
 
 const APP_DATE_FORMATS22: MatDateFormats = {
@@ -39,6 +40,7 @@ const APP_DATE_FORMATS22: MatDateFormats = {
     AngularFireAuthModule,
     AngularFireStorageModule,
     MatNativeDateModule,
+    NotificationModule.forRoot()
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 
-export interface Value {
+export interface Value33 {
   from: number;
   to: number;
 }
@@ -25,34 +25,34 @@ export interface Placeholder33 {
 })
 export class DateRangeComponent implements OnInit, ControlValueAccessor {
 
-  @Input() placeholder: Placeholder33;
-  @Output() changed = new EventEmitter<Value>();
-  form: FormGroup;
+  @Input() placeholder22: Placeholder33;
+  @Output() changed22 = new EventEmitter<Value33>();
+  form22: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
+    this.form22 = this.fb.group({
       from: [null],
       to: [null],
     });
   }
 
   get min(): Date {
-    const from = this.form.controls.from.value;
+    const from = this.form22.controls.from.value;
     return from ? new Date(from) : null;
   }
 
   get max(): Date {
-    const to = this.form.controls.to.value;
+    const to = this.form22.controls.to.value;
     return to ? new Date(to) : null;
   }
 
   private propagateChange: any = () => { };
   private propagateTouched: any = () => { };
 
-  writeValue(value: Value): void {
-    this.form.patchValue(value || {});
+  writeValue(value: Value33): void {
+    this.form22.patchValue(value || {});
   }
 
   registerOnChange(fn: any): void {
@@ -65,17 +65,17 @@ export class DateRangeComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     if (isDisabled) {
-      this.form.disable();
+      this.form22.disable();
     } else {
-      this.form.enable();
+      this.form22.enable();
     }
   }
 
   onChanged22(): void {
-    const value = { ...this.form.value };
+    const value = { ...this.form22.value };
 
     this.propagateChange(value);
-    this.changed.emit(value);
+    this.changed22.emit(value);
   }
 
   onClosed22(): void {

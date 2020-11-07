@@ -1,10 +1,24 @@
+
+<h2>Actions</h2>
+<app-button (click)="onToggleSpinner22()">Toggle Spinner</app-button>
+<app-button (click)="onError22()">Error</app-button>
+<app-button (click)="onSuccess22()">Success</app-button>
+
+
+
+
 <h2>Form</h2>
 
+<div class="wrapper">
+  <app-spinner *ngIf="showSpinner22"></app-spinner>
 
-<form [formGroup]="form22" novalidate autocomplete="off"  (ngSubmit)="onSubmit22()">
 
+  <form [formGroup]="form22" novalidate autocomplete="off"  (ngSubmit)="onSubmit22()">
+
+  <app-button type="submit">Submit</app-button>
   <app-button (click)="onPatchValue22()">Patch Value</app-button>
   <app-button (click)="onToggleInline22()">Toggle Inline</app-button>
+  <app-button (click)="onToggleDisable22()">Toggle Disable</app-button>
    <br/><br/><br/>
 
 
@@ -20,6 +34,12 @@
   </app-form-field>
 
 
+  <app-form-field label22="Autocomplete" [required22]="true" [control22]="form22.controls.autocomplete"
+                  [isInline22]="isInline22" >
+    <app-autocomplete formControlName="autocomplete" [items22]="items22"></app-autocomplete>
+  </app-form-field>
+
+
   <app-form-field label22="Select" [required22]="true" [control22]="form22.controls.select"
                   [isInline22]="isInline22" >
     <app-select formControlName="select" [items22]="items22"></app-select>
@@ -31,15 +51,10 @@
     <app-checkboxes formControlName="checkboxes" [items22]="items22"></app-checkboxes>
   </app-form-field>
 
-  <app-form-field label22="Radios" [required22]="true" [control22]="form22.controls.radios"
-                  [isInline22]="isInline22" >
-    <app-checkboxes formControlName="radios" [items22]="items22"></app-checkboxes>
-  </app-form-field>
-
 
   <app-form-field label22="Radios" [required22]="true" [control22]="form22.controls.radios"
                   [isInline22]="isInline22" >
-    <app-checkboxes formControlName="radios" [items22]="items22"></app-checkboxes>
+    <app-radios formControlName="radios" [items22]="items22"></app-radios>
   </app-form-field>
 
 
@@ -54,8 +69,8 @@
     <app-date-range formControlName="dateRange" ></app-date-range>
   </app-form-field>
 
-</form>
-
+  </form>
+</div>
 
 <code>
   {{ form22.value | json }}
