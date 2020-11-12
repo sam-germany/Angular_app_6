@@ -15,7 +15,7 @@ const initialState: DictionariesState = {
   error: null
 }
 
-export function reducer ( state = initialState,  action: fromActions.All ): DictionariesState {
+export function reducer ( state = initialState,  action: fromActions.All22 ): DictionariesState {
 
   switch (action.type) {
                          case fromActions.Types.READ: {

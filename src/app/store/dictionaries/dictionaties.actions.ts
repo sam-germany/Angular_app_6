@@ -26,6 +26,6 @@ export class ReadError implements Action {
   }
 }
 
-export type All = Read | ReadSuccess | ReadError;
+export type All22 = Read | ReadSuccess | ReadError;
 
 

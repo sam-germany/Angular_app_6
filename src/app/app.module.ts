@@ -11,7 +11,19 @@ import {MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatDateFormats, MatNativeDateModule} 
 import {environment} from '@src/environments/environment';
 import { HeaderComponent } from './components/header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
+// Services
+
 import {NotificationModule} from '@app/services';
+
+// Store
+
+import { StoreModule} from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50}) : [];
+import { reducers, effects } from'./store';
 
 
 const APP_DATE_FORMATS22: MatDateFormats = {
@@ -40,7 +52,15 @@ const APP_DATE_FORMATS22: MatDateFormats = {
     AngularFireAuthModule,
     AngularFireStorageModule,
     MatNativeDateModule,
-    NotificationModule.forRoot()
+    NotificationModule.forRoot(),
+    StoreModule.forRoot(reducers, {
+                                   runtimeChecks: {
+                                     strictStateImmutability: true,
+                                     strictActionImmutability: true
+                                           }
+    }),
+    EffectsModule.forRoot(effects),
+    StoreDevtools,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

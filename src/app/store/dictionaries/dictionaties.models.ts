@@ -8,6 +8,7 @@ export interface Dictionaries {                           // this is the reason 
   specializations: Dictionary;
   qualifications: Dictionary;
   skills: Dictionary;
+  countries: Dictionary;
 }
 
 export interface Dictionary {
