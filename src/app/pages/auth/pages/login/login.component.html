@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="app-page">
+    <div class="app-page__header">
+       <h1>Log in</h1>
+    </div>
+
+  <form [formGroup]="form" novalidate autocomplete="off" (submit)="onSubmit22()" (keyup.enter)="onSubmit22()">
+
+    <div class="app-page__content">
+
+         <app-form-field label22="Email" [required22]="true" [control22]="form.controls.email"
+                                                             [isInline22]="false"  [patternError22]="regexErrors.email">
+               <app-input formControlName="email"></app-input>
+         </app-form-field>
+
+         <app-form-field label22="Password" [required22]="true" [control22]="form.controls.password"
+                                                                [isInline22]="false"  [patternError22]="regexErrors.password">
+               <app-password formControlName="password"></app-password>
+         </app-form-field>
+
+    </div>
+
+    <div class="app-page__footer">
+        <app-button type="submit">Log in</app-button>
+    </div>
+
+  </form>
+
+  <app-spinner *ngIf="loading$ | async"></app-spinner>
+
+</div>

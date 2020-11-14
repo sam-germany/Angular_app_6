@@ -30,6 +30,26 @@ export class UserEffects {
 
 
 
+@Effect()
+init: Observable<Action33> =
+  this.actions
+        .pipe(
+           ofType(fromActions.Types.INIT),
+           switchMap(() => this.afAuth.authState.pipe(take(1))),
+           switchMap(authState =>  {
+                  if (authState) {
+                      return this.afs.doc<User>('users/${authState.uid}')
+                                     .valueChanges()
+                                     .pipe(
+                                        take(1),
+                                        map(user  => new fromActions.InitAuthorized(authState.uid, user || null )),
+                                        catchError(err => of(new fromActions.InitError(err.message)))
+                                     );
+                  } else {
+                      return of(new fromActions.InitUnauthorized());
+                  }
+           })
+        );
 
 
 @Effect()
@@ -41,12 +61,15 @@ signInEmail: Observable<Action33> =
         switchMap(credentials =>
                        from(this.afAuth.auth.signInWithEmailAndPassword(credentials.email, credentials.password))
                        .pipe(
-                           switchMap(signInState =>
-                                               this.afs.doc<User>(`users/${signInState.user.uid}`)
+                           switchMap(state22 =>
+                                               this.afs.doc<User>(`users/${state22.user.uid}`)
                                                .valueChanges()
                                                 .pipe(
                                                      take(1),
-                                                     map(user => new fromActions.SignInEmailSuccess(signInState.user.uid, user || null))
+                                                     tap(() =>{
+                                                             this.router.navigate(['/']);
+                                                     }),
+                                                     map(user => new fromActions.SignInEmailSuccess(state22.user.uid, user || null))
                                                 )
                            ),
                            catchError(err => {
@@ -68,8 +91,8 @@ signUpEmail: Observable<Action33>
                                            .pipe(
                                                 tap(() => {
                                                          this.afAuth.auth.currentUser.sendEmailVerification(
-                                                                                               environment.firebase.actionCodeSettings
-                                                         );
+                                                                                               environment.firebase.actionCodeSettings);
+                                                         this.router.navigate(['/auth/email-confirm'])
                                                 }),
                                                 map((signUpState) => new fromActions.SignUpEmailSuccess(signUpState.user.uid)),
                                                 catchError(err => {
@@ -92,19 +115,6 @@ signUpEmail: Observable<Action33>
                                 )
                    )
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
