@@ -129,4 +129,8 @@ export class SharedComponent implements OnInit {
   onError22(): void {
     this.notification.error('Something is wrong');
   }
+
+  onFilesChanged(urls: string | string []): void {
+    console.log('urls = ', urls);
+  }
 }

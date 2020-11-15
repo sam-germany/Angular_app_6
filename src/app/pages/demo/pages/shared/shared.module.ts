@@ -3,22 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { SharedRoutingModule } from './shared-routing.module';
 import { SharedComponent } from './shared.component';
-import {ButtonsModule} from '@app/shared/buttons/buttons.module';
 
 import {ReactiveFormsModule} from '@angular/forms';
-import {ControlsModule, IndicatorsModule} from '@app/shared';
+import {ButtonsModule, ControlsModule, IndicatorsModule, PopupsModule} from '@app/shared';
+import {FilesUploadModule} from '@app/shared/popups/files-upload/files-upload.module';
 
 
 @NgModule({
   declarations: [SharedComponent],
-  imports: [
-    CommonModule,
-    SharedRoutingModule,
-    ButtonsModule,
-    ReactiveFormsModule,
-    ControlsModule,
-    IndicatorsModule
+    imports: [
+        CommonModule,
+        SharedRoutingModule,
+        ButtonsModule,
+        ReactiveFormsModule,
+        ControlsModule,
+        IndicatorsModule,
+        FilesUploadModule,
+        PopupsModule
 
-  ]
+    ]
 })
 export class SharedModule { }
