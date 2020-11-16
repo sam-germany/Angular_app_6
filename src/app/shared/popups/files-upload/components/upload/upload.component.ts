@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {AngularFireStorage, AngularFireUploadTask} from '@angular/fire/storage';
 import {Observable, Subject} from 'rxjs';
-import {finalize, takeUntil} from 'rxjs/operators';
+import {finalize, takeUntil, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-upload',
@@ -27,12 +27,9 @@ export class UploadComponent implements OnInit, OnDestroy {
     this.startUpload22();
   }
 
-
   ngOnDestroy(): void {
-     this.destroy.next();
-     this.destroy.complete();
+     this.destroy.next();    this.destroy.complete();
   }
-
   startUpload22(): void {
      const path = `${this.file33.type.split('/')[0]}/${Date.now()}_${this.file33.name}`;
                   //  image/103152123235_fileName.jpg

@@ -19,11 +19,12 @@
         <ng-template #inProgress >
            <button (click)="task.pause()" class="button"
                            [disabled]="!(snapshot?.state === 'running')"> Pause </button>
+
            <button (click)="task.cancel()" class="button"
                            [disabled]="!(snapshot?.state === 'running')"> Cancel </button>
-          <button (click)="task.resume()" class="button"
-                           [disabled]="!(snapshot?.state === 'paused')"> Resume </button>
 
+           <button (click)="task.resume()" class="button"
+                           [disabled]="!(snapshot?.state === 'paused')"> Resume </button>
         </ng-template>
 
       </div>
