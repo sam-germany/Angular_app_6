@@ -1,0 +1,37 @@
+<script src="stepper.component.ts"></script>
+<div class="stepper">
+
+  <div class="stepper__header">
+    <ng-container *ngFor="let step of steps33; let index = index; let last = last">
+
+      <div class="step" [class.step_active]="isActive(index)">
+        <div class="step__icon">
+          <span>{{ isCompleted(index) ? '&#10003;' : index + 1 }}</span>
+        </div>
+        <div class="step__label">
+          {{ step.label }}
+        </div>
+      </div>
+
+      <div class="gap" *ngIf="!last"></div>
+
+    </ng-container>
+  </div>
+
+  <div class="stepper__content">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="stepper__footer">
+    <button class="app-button" *ngIf="isFirst()" (click)="onCancel33()">Cancel</button>
+
+                                      <!--   &#8592;  means     ( <-  Return sign)-->
+    <button class="app-button" *ngIf="!isFirst()" (click)="onPrev33()">&#8592;</button>
+
+                                        <!-- &#8594;   means   ( -> Forward sign)-->
+    <button class="app-button" *ngIf="!isLast()" (click)="onNext33()">&#8594;</button>
+
+    <button class="app-button" *ngIf="isLast()" (click)="onComplete33()">Complete</button>
+  </div>
+
+</div>

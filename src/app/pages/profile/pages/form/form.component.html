@@ -1,1 +1,22 @@
-<p>form works!</p>
+
+<div class="app-page">
+    <div class="app-page__header">New Profile</div>
+
+
+  <div class="app-page__content">
+      <app-stepper *ngIf="dictionariesIsReady$ | async">
+          <ng-container [ngSwitch]="stepperSer?.activeStep22?.key">
+
+               <app-personal *ngSwitchCase="'personal'"
+                             [dictionaries22]="dictionaries$ | async"
+                             (changed22)="onChangedPersonal22($event)">
+               </app-personal>
+
+
+
+            <app-professional *ngSwitchCase="'professional'"></app-professional>
+          </ng-container>
+      </app-stepper>
+    </div>
+
+</div>
