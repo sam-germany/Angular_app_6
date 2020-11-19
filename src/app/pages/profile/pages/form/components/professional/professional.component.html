@@ -1,1 +1,27 @@
-<p>professional works!</p>
+
+
+<form [formGroup]="form22" novalidate autocomplete="off">
+
+  <app-form-field label22="Select your role" [required22]="true" [control22]="form22.controls.roleId">
+     <app-radios formControlName="roleId" [items22]="dictionaries.roles?.controlItems"></app-radios>
+  </app-form-field>
+
+
+  <app-form-field label22="Tel about yourself" [control22]="form22.controls.about">
+     <app-input formControlName="about"></app-input>
+  </app-form-field>
+
+  <ng-container [ngSwitch]="form22.controls.roleId.value">
+
+       <app-recruiter *ngSwitchCase="'recruiter'" [parent44]="form22"
+                         name22="role" [value44]="value22?.role" [dictionaries44]="dictionaries">
+       </app-recruiter>
+
+       <app-employee *ngSwitchCase="'employee'" [parent55]="form22"
+                      name="role" [value55]="value22?.role" [dictionaries55]="dictionaries">
+       </app-employee>
+
+  </ng-container>
+
+
+</form>

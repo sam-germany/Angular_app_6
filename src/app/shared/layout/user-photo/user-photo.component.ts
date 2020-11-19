@@ -22,7 +22,9 @@ export class UserPhotoComponent implements OnInit {
     const  x =  this.photoURL ?
       this.sanitizer.bypassSecurityTrustStyle(`url(${this.photoURL})`) : null;
 
-    console.log(x);
+//    console.log(this.photoURL);
+//    console.log(x);
+
     return x;
   }
 

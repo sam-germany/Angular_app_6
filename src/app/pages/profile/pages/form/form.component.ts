@@ -8,6 +8,7 @@ import {Store, select} from '@ngrx/store';
 import  * as fromRoot from '@app/store';
 import * as fromDictionaries from '@app/store/dictionaries';
 import { PersonalForm } from './components/personal/personal.component';
+import {ProfessionalForm} from './components/professional/professional.component';
 
 
 @Component({
@@ -33,8 +34,8 @@ export class FormComponent implements OnInit {
     this.dictionariesIsReady$ = this.store.pipe(select(fromDictionaries.getIsReady));
 
     this.stepperSer.init22([
-                         {key: 'personal', label: 'Personal'},
                          {key: 'professional', label: 'Professional'},
+                         {key: 'personal', label: 'Personal'}
                       ]);
 
     this.stepperSer.complete$.pipe( takeUntil(this.destroy)).subscribe(() => {
@@ -54,6 +55,9 @@ export class FormComponent implements OnInit {
     console.log('personal changed = ', data);
   }
 
+  onChangedProfessional33(data: ProfessionalForm) {
+      console.log(' professional changed  = ',  data);
+  }
 }
 
 

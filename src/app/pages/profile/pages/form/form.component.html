@@ -14,7 +14,11 @@
 
 
 
-            <app-professional *ngSwitchCase="'professional'"></app-professional>
+            <app-professional *ngSwitchCase="'professional'"
+                              [dictionaries]="dictionaries$ | async"
+                              (changed33)="onChangedProfessional33($event)">
+
+            </app-professional>
           </ng-container>
       </app-stepper>
     </div>
