@@ -2,8 +2,11 @@
 
 <form [formGroup]="form22" novalidate autocomplete="off">
 
-  <app-form-field label22="Select your role" [required22]="true" [control22]="form22.controls.roleId">
-     <app-radios formControlName="roleId" [items22]="dictionaries.roles?.controlItems"></app-radios>
+  <app-form-field label22="Select your role" [required22]="true"
+                                      [control22]="form22.controls.roleId">
+     <app-radios formControlName="roleId"
+                 [items22]="dictionaries.roles?.controlItems">
+     </app-radios>
   </app-form-field>
 
 
@@ -11,17 +14,15 @@
      <app-input formControlName="about"></app-input>
   </app-form-field>
 
-  <ng-container [ngSwitch]="form22.controls.roleId.value">
 
+  <ng-container [ngSwitch]="form22.controls.roleId.value">
        <app-recruiter *ngSwitchCase="'recruiter'" [parent44]="form22"
-                         name22="role" [value44]="value22?.role" [dictionaries44]="dictionaries">
+           name44="role" [value44]="value22?.role" [dictionaries44]="dictionaries">
        </app-recruiter>
 
        <app-employee *ngSwitchCase="'employee'" [parent55]="form22"
-                      name="role" [value55]="value22?.role" [dictionaries55]="dictionaries">
+           name55="role" [value55]="value22?.role" [dictionaries55]="dictionaries">
        </app-employee>
-
   </ng-container>
-
 
 </form>

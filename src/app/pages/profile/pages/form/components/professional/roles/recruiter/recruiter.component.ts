@@ -22,11 +22,10 @@ export class RecruiterComponent implements OnInit {
 
   form44: FormGroup;
 
-
-
   constructor( private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
     this.form44 = this.fb.group({
                       companyName: [null, {
                                updateOn: 'blur',
@@ -44,6 +43,7 @@ export class RecruiterComponent implements OnInit {
 
     if(this.value44) {
       this.form44.patchValue(this.value44);
+      console.log(this.value44);
     }
 
     this.parent44.addControl(this.name44, this.form44);

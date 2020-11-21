@@ -24,24 +24,27 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {UserPhotoModule} from '@app/shared/layout';
 import { EmployeeComponent } from './components/professional/roles/employee/employee.component';
 import { RecruiterComponent } from './components/professional/roles/recruiter/recruiter.component';
+import { ExperiencesComponent } from './components/professional/roles/employee/experiences/experiences.component';
+import {ButtonModule} from '@app/shared/buttons';
 
 @NgModule({
-  declarations: [FormComponent, PersonalComponent, ProfessionalComponent, EmployeeComponent, RecruiterComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormRoutingModule,
-    FormFieldModule,
-    InputModule,
-    FilesUploadModule,
-    SpinnerModule,
-    AutocompleteModule,
-    StepperModule,
-    UserPhotoModule,
-    RadiosModule,
-    SelectModule,
-    DateRangeModule,
-    CheckboxesModule
-  ]
+  declarations: [FormComponent, PersonalComponent, ProfessionalComponent, EmployeeComponent, RecruiterComponent, ExperiencesComponent],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        FormRoutingModule,
+        FormFieldModule,
+        InputModule,
+        FilesUploadModule,
+        SpinnerModule,
+        AutocompleteModule,
+        StepperModule,
+        UserPhotoModule,
+        RadiosModule,
+        SelectModule,
+        DateRangeModule,
+        CheckboxesModule,
+        ButtonModule
+    ]
 })
 export class FormModule { }

@@ -3,20 +3,35 @@
 
 <form [formGroup]="form55" novalidate autocomplete="off" >
 
-  <app-form-field label22="Expected Salary" [required22]="true" [control22]="form55.controls.expectedSalary">
+  <app-form-field label22="Expected Salary" [required22]="true"
+                                   [control22]="form55.controls.expectedSalary">
       <app-input formControlName="expectedSalary"></app-input>
   </app-form-field>
 
-  <app-form-field label22="Specialization" [required22]="true" [control22]="form55.controls.specialization">
-     <app-select formControlName="specialization" [items22]="dictionaries55.specializations.controlItems"></app-select>
+  <app-form-field label22="Experience" [required22]="true">
+      <app-experiences [parent11]="form55"
+                       [values11]="value55?.experiences" name11="experiences">
+      </app-experiences>
   </app-form-field>
 
-  <app-form-field label22="Qualification" [required22]="true" [control22]="form55.controls.qualification">
-      <app-select formControlName="qualification" [items22]="dictionaries55.qualifications.controlItems"></app-select>
+  <app-form-field label22="Specialization" [required22]="true"
+                                   [control22]="form55.controls.specialization">
+     <app-select formControlName="specialization"
+                         [items22]="dictionaries55.specializations.controlItems">
+     </app-select>
   </app-form-field>
 
-  <app-form-field label22="Your main Skills" [required22]="true" [control22]="form55.controls.skills">
-    <app-checkboxes formControlName="skills" [items22]="dictionaries55.skills.controlItems"></app-checkboxes>
+  <app-form-field label22="Qualification" [required22]="true"
+                                     [control22]="form55.controls.qualification">
+      <app-select formControlName="qualification"
+                          [items22]="dictionaries55.qualifications.controlItems">
+      </app-select>
+  </app-form-field>
+
+  <app-form-field label22="Your main Skills" [required22]="true"
+                                            [control22]="form55.controls.skills">
+    <app-checkboxes formControlName="skills" [items22]="dictionaries55.skills.controlItems">
+    </app-checkboxes>
   </app-form-field>
 
 </form>

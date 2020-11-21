@@ -47,19 +47,15 @@ export class ProfessionalComponent implements OnInit, OnDestroy {
                                           Validators.required
                                       ]
                                   }],
-                            about: [null, {
-                                      updateOn: 'blur',
-                                      validators: [
-                                        Validators.required
-                                      ]
-                            }]
+                            about: [null]
     });
 
     if (this.value22) {
       this.form22.patchValue(this.value22);
     }
 
-    this.stepperSer.check$.pipe(takeUntil(this.destroy)).subscribe((type) => {
+    this.stepperSer
+        .check$.pipe(takeUntil(this.destroy)).subscribe((type) => {
 
       if (!this.form22.valid) {
         markFormGroupTouched22(this.form22);

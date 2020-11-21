@@ -1,12 +1,14 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Dictionaries} from '@app/store/dictionaries';
+import {ExperienceForm} from './experiences/experiences.component';
 
 export interface EmployeeForm {
   specialization: string;
   skills: string[];
   qualification: string;
   expectedSalary: number;
+  experiences: ExperienceForm[];
 }
 
 @Component({
@@ -65,7 +67,6 @@ export class EmployeeComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.parent55.removeControl(this.name55);
-
   }
 
 }

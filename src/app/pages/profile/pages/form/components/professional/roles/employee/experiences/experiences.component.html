@@ -1,0 +1,32 @@
+
+
+
+<form [formGroup]="parent11" class="experiences">
+  <div [formArrayName]="name11" *ngIf="parent11.controls[name11]">
+     <div class="experience" *ngFor="let x1 of parent11.controls[name11]['controls'];
+                                                        let i=index; let first= first">
+
+       <div [formGroupName]="i">
+           <app-form-field label22="Company name" [required22]="true"
+                            [control22]="x1.controls.companyName" [isInline22]="false">
+               <app-input formControlName="companyName"></app-input>
+           </app-form-field>
+
+           <app-form-field label="Period" [required22]="true" [control22]="x1.controls.period"
+                                                           [isInline22]="false">
+               <app-date-range formControlName="period"></app-date-range>
+           </app-form-field>
+       </div>
+
+       <div class="experience__footer">
+          <app-button *ngIf="!first" (click)="deleteExperience11(i)">Delete</app-button>
+       </div>
+
+     </div>
+
+  </div>
+
+  <div class="experiences__footer">
+      <app-button (click)="addExperience11()">Add</app-button>
+  </div>
+</form>
